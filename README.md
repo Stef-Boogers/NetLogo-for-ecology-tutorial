@@ -93,19 +93,35 @@ end
 
 to go 
   if tick-counter < max-ticks [
-    procedure sheep-movement
-    procedure sheep-energy-level-update
-    procedure sheep-reproduction
-    procedure wolf-movement
-    procedure wolf-energy-level-update
-    procedure wolf-reproduction
+    sheep-movement
+    sheep-feed
+    sheep-reproduction
+    wolf-movement
+    wolf-feed
+    wolf-reproduction
+    grass-regeneration
     add one tick to counter
   ]
 end
-```
-As previously mentioned, the "go" procedure keeps repeating indefinitely. Now that you understand the basic programming flow, it's time to jump in head-first. <br>
 
-##
+to sheep-movement
+...
+```
+As previously mentioned, the "go" procedure keeps repeating indefinitely. The above code still lacks some finesses, such as a death procedure. Anyway, now that you understand the basic programming flow, it's time to jump in head-first with coding. <br>
+**To remember:**
+
+> NetLogo is still fun. <br>
+> Classes, attributes, breeds, globals... I eat that stuff for breakfast. <br>
+> Now where's the code you promised?
+
+---
+## 3. Building a program
+Don't worry if the NetLogo syntax feels a little uneasy at first. Engineers are used to harsher environments, which in this case can actually be a disadvantage. When in doubt, just type your command in as if you knew nothing of coding. That actually works quite often. <br>
+During coding, you will often switch between the "Code" and "Interface" tabs to add or adapt user inputs and to see the functioning of your model. 
+
+### A. Interface
+1. Start a new, blank model in NetLogo (*File > New* or `Ctrl+N`). 
+2. On the Interface tab, add two buttons, "setup" and "go". To do this, set
 
 ## Fun other models to play with 
 - [Camas-Douglas fir fire model](http://modelingcommons.org/browse/one_model/6020#model_tabs_browse_nlw): progression of a wildfire across a plairie filled with camas, becoming invaded with Douglas fir when a steady fire regime is abandoned. Similar to the burning of heath fields in our own region. 
