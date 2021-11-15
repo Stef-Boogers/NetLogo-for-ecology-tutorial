@@ -169,11 +169,33 @@ to setup
 end
 ```
 If you got that to work, it's time to get a little creative. Use the dictionary if needed.<br>
-*Assignment:*
+*Assignment:* <br>
 > Set the `color` and `size` attributes of both sheep and wolves to something aesthetically pleasing.
 > Set the starting x- and y-coordinates of sheep and wolves to random numbers (Hint: see "setxy").
+>
+>
+> Possible solution [here](assets/Assignment1.txt).
 
+Go back to the Interface tab and see what happens when you press the setup button. You should see your sheep and wolves appearing. <br> <br>
+One thing is still missing from the setup procedure: the environment. Return to your code and add the following inside of the setup procedure: 
+```
+ask patches [                                       ; tell the patches to do something
+      set pcolor one-of [ green brown ]             ; patch color is set randomly to either green (grass) or brown (bare)
+      ifelse pcolor = green                         ; if the patch is green, 
+      [ set countdown grass-regrowth-time ]         ; then set a regrowth clock to the maximum value
+      [ set countdown random grass-regrowth-time ]  ; if the patch is brown, set the regrowth clock to a random value between zero and the maximum value
+]
+```
+Oops, something went wrong there. It seems that there's nothing called "countdown"... Could you perhaps fix that?
 
+*Assignment:* <br>
+> Solve the issue of the missing attribute.
+>
+>
+>
+> Hint: you need an additional ...-own declaration at the start of your code.
+
+Again, admire your progress in the Interface tab. The setup procedure is now complete. In order to build the go procedure, you need a few extra sliders. These will define the odds of reproduction and the amount of energy gained from food. Specifically:
 
 
 
