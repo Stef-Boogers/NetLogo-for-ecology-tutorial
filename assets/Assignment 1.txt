@@ -1,0 +1,32 @@
+globals [
+  max-sheep
+]
+
+breed [ wolves wolf ]
+breed [ sheep a-sheep ]
+
+turtles-own [ energy-level ]
+
+to setup
+  clear-all             ; clears... everything.
+  reset-ticks           ; resets the tick counter.
+  set max-sheep 2000    ; limiting the amount of sheep by setting the max-sheep global (no effect yet)
+  
+  create-sheep initial-number-sheep [   ; create an amount, determined by input slider, of sheep and initialize their variables.
+    set shape "sheep"
+    set size 1.5
+    set color white
+    setxy random-xcor random-ycor
+  ]
+  
+  create-wolves initial-number-wolves [ ; same for wolves. 
+    set shape "wolf"
+    set size 2
+    set color black
+    setxy random-xcor random-ycor
+  ]
+
+end
+
+to go
+end
