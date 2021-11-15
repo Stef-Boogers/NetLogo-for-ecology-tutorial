@@ -13,8 +13,19 @@
 In NetLogo, go to *File > Models Library* or type `Ctrl+M`. There, use the search bar at the bottom of the screen and type "Fireflies". The folder tree structure will show one option, under the folder "Biology". Doubleclick "Fireflies" and the model will load. If this fails, you can run the model online [here](http://www.netlogoweb.org/launch#http://ccl.northwestern.edu/netlogo/models/models/Sample%20Models/Biology/Fireflies.nlogo).
 <br><br>
 - Click the "Info" tab up top to get your bearings. What is being modelled? What are the different options? What do the authors recommend that you try?
-- Get back to the "Interface" tab. On the left, you will find some typical input boxes (green). You can fidget around with them if you like. Nothing will happen yet.
-- When you have found some settings that suit you, press. 
+- Get back to the "Interface" tab. On the left, you will find some typical input boxes (green). You can fidget around with them if you like. Nothing will happen yet. I advise you to set ![darkswitch](assets/DarkSwitch.JPG) to "On".
+- When you have found some settings that suit you, press ![setup](assets/Setup.JPG). Afterwards, press ![go](assets/Go.JPG). The "go" button has a roundabout sign, which means that this procedure keeps repeating until you press the button again or until a predetermined number of 'ticks' or timesteps has passed.
+- Does the output of the model match your expectations? Play around with settings. You can often do this while the model is running. Some inputs are however only passed into the model during the "setup" procedure, meaning that changing them during the "go" procedure, won't have an influence.
+
+**To remember:**
+
+<br>
+
+> NetLogo is fun. <br>
+> Procedures, euhm, exist. So do ticks.<br>
+> Please tell me more. Especially code, I love code.
+
+<br>
 
 ## Typical NetLogo code structure
 All NetLogo models follow the same general structure. Within that framework however, the user has a lot of freedom.
