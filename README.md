@@ -121,7 +121,62 @@ During coding, you will often switch between the "Code" and "Interface" tabs to 
 
 ### A. Interface
 1. Start a new, blank model in NetLogo (*File > New* or `Ctrl+N`). 
-2. On the Interface tab, add two buttons, "setup" and "go". To do this, set
+2. On the Interface tab, add a button to call the setup procedure To do this, set the drop down menu in the banner to "Button" (default option) ![interface banner](assets/InterfaceBanner.JPG) <br>
+and click the plus sign to its left. Now click anywhere in the white space.
+ - Next to "Agent(s)", select "observer". 
+ - Under "Commands" and next to "Display name", type "setup".
+ - Leave the "Forever" and "Disable until ticks start" tick boxes open, as well as the "Action key" field.
+3. Redo step 2 for the "go" procedure. This procedure needs to repeat indefinitely, so tick the "Forever" box.
+4. Now add three slider inputs in a similar way. Fill in the terms below as "Global variable", and use the minimum - increment - maximum values shown.
+ - initial-number-sheep: 0 - 1 - 250
+ - initial-number-wolves: 0 - 1 - 250
+ - grass-regrowth-time: 0 - 1 - 100
+5. Finally, right-click the output visualizer (the big black square), click "Edit" and match the settings to the screenshot below <br>
+
+<p align="center">
+  <img src="/assets/ModelSettings.JPG" alt="Model settings" width="350"/>
+</p>  
+
+### B. Code
+We already described what the code section should contain. Now it's time to actually code it. Go to the "Code" tab and type the following:
+```
+globals [
+  max-sheep
+]
+
+breed [ wolves wolf ]
+breed [ sheep a-sheep ]
+
+turtles-own [ energy-level ]
+```
+You already know what this code does. Didn't think it would actually work, did you? Click "check" in the banner and NetLogo will quickly see if the code will at least compile. Unfortunately, that doesn't mean your model will run. So far, so good? If not, shout. <br>
+
+We can now get started on the setup procedure. I wonder what the command to clear everything could be?
+```
+to setup
+  clear-all             ; clears... everything.
+  reset-ticks           ; resets the tick counter.
+  set max-sheep 2000    ; limiting the amount of sheep by setting the max-sheep global (no effect yet)
+  
+  create-sheep initial-number-sheep [   ; create an amount, determined by input slider, of sheep and initialize their variables.
+    set shape "sheep"
+  ]
+  
+  create-wolves initial-number-wolves [ ; same for wolves. 
+    set shape "wolf"
+  ]
+
+end
+```
+If you got that to work, it's time to get a little creative. Use the dictionary if needed.<br>
+*Assignment:*
+> Set the `color` and `size` attributes of both sheep and wolves to something aesthetically pleasing.
+> Set the starting x- and y-coordinates of sheep and wolves to random numbers (Hint: see "setxy").
+
+
+
+
+
 
 ## Fun other models to play with 
 - [Camas-Douglas fir fire model](http://modelingcommons.org/browse/one_model/6020#model_tabs_browse_nlw): progression of a wildfire across a plairie filled with camas, becoming invaded with Douglas fir when a steady fire regime is abandoned. Similar to the burning of heath fields in our own region. 
