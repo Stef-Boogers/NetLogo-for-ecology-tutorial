@@ -17,7 +17,7 @@ In NetLogo, go to *File > Models Library* or type `Ctrl+M`. There, use the searc
 - Click the "Info" tab up top to get your bearings. What is being modelled? What are the different options? What do the authors recommend that you try?
 - Get back to the "Interface" tab. On the left, you will find some typical input boxes (green). You can fidget around with them if you like. Nothing will happen yet. I advise you to set ![darkswitch](assets/DarkSwitch.JPG) to "On".
 - When you have found some settings that suit you, press ![setup](assets/Setup.JPG). Afterwards, press ![go](assets/Go.JPG). The "go" button has a roundabout sign, which means that this procedure keeps repeating until you press the button again or until a predetermined number of 'ticks' or timesteps has passed.
-- Does the output of the model match your expectations? Play around with settings. You can often do this while the model is running. Some inputs are however only passed into the model during the "setup" procedure, meaning that changing them during the "go" procedure, won't have an influence.
+- Does the output of the model match your expectations? Play around with settings. You can often do this while the model is running and see an immediate response. Some inputs are however only passed into the model during the "setup" procedure, meaning that changing them during the "go" procedure won't have an influence.
 
 **To remember:**
 
@@ -30,7 +30,7 @@ In NetLogo, go to *File > Models Library* or type `Ctrl+M`. There, use the searc
 ## 2. Typical NetLogo code structure <br>
 
 Onwards to coding! All NetLogo models follow the same general structure. Within that framework however, the user has a lot of freedom. <br>
-NetLogo follows a class-based object-oriented paradigm, in which the user has to define classes (the types of turtles and patches), the attributes of these classes and the methods that can be applied to them. A fake example using pseudocodefor a basic version of a sheep-wolves predation model should make the rudimentaries clear. <br><br>
+NetLogo follows a class-based object-oriented paradigm, in which the user has to define classes (the types of turtles and patches), the attributes of these classes and the methods that can be applied to them. A fake example using pseudocode for a basic grass-sheep-wolves predation model should make the rudimentaries clear. NOTE: not real code! <br><br>
 
 ### A. Globals
 
@@ -46,13 +46,66 @@ globals [
   max-sheep
 ]
 
+; NetLogo code is mostly written using "-" (hyphen) instead of the more traditional "_" (underscore).
 ```
 <br>
 
 ### B. Turtle-own
 
 After the globals, we name our classes of (non-patch) agents: the turtles. In our case, there are two separate classes: wolves and sheep. In our model, they both only have one 
-attribute: their energy level.
+attribute: their energy level. We use the **breed** primitive to show NetLogo what an instantiation of both classes will be called and then define the attributes.
+
+```
+breed [ wolves wolf ] 
+; This creates the turtleset "wolves". 
+; Its members are each called "wolf" and receive a sequantial number when they are created (wolf 1, wolf 2, ...).
+
+breed [ sheep a-sheep ]
+; Same for sheep.
+
+wolf-own [ energy-level ]
+sheep-own [ energy-level ]
+; Faster way to do the same thing: turtles-own [ energy-level ]
+
+```
+Turtles come with several built-in attributes that don't need to be named here: their color, their pictogram size etc. <br>
+### C. Patch-own
+
+Just like turtles, the patches in the simulation also have attributes. These can be coded using "patch-own". We won't name anything at this stage. On to the next section!
+
+### D. Procedures
+
+We have now described the playing field and the characters, but how do we get them to do things? Move? Change color? Kill each other without regard? For this, you need **procedures**. Their general syntax is as follows: <br>
+```
+to procedure
+  do something
+end
+```
+Simple enough! Now, remember the ![setup](assets/Setup.JPG) and ![go](assets/Go.JPG) buttons? These actually start the two most important procedures:
+```
+to setup
+  clear the playing field from last time
+  reset the tick counter
+  generate wolves
+  generate sheep
+  set the state of patches (grass/bare)
+end
+
+to go 
+  if tick-counter < max-ticks [
+    procedure sheep-movement
+    procedure sheep-energy-level-update
+    procedure sheep-reproduction
+    procedure wolf-movement
+    procedure wolf-energy-level-update
+    procedure wolf-reproduction
+    add one tick to counter
+  ]
+end
+```
+As previously mentioned, the "go" procedure keeps repeating indefinitely. Now that you understand the basic programming flow, it's time to jump in head-first. <br>
+
+##
 
 ## Fun other models to play with 
 - [Camas-Douglas fir fire model](http://modelingcommons.org/browse/one_model/6020#model_tabs_browse_nlw): progression of a wildfire across a plairie filled with camas, becoming invaded with Douglas fir when a steady fire regime is abandoned. Similar to the burning of heath fields in our own region. 
