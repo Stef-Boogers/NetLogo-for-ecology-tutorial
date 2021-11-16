@@ -134,7 +134,7 @@ and click the plus sign to its left. Now click anywhere in the white space.
 5. Finally, right-click the output visualizer (the big black square), click "Edit" and match the settings to the screenshot below <br>
 
 <p align="center">
-  <img src="/assets/ModelSettings.JPG" alt="Model settings" width="350"/>
+  <img src="https://github.com/Stef-Boogers/NetLogo-for-ecology-tutorial/blob/86d21095403eb86972d8018b2c23169ae47778cb/assets/ModelSettings.JPG" alt="Model settings" width="350"/>
 </p>  
 
 ### B. Code
