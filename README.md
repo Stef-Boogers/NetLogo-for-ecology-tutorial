@@ -74,6 +74,7 @@ A few things to note:
 - You cannot add an attribute that is already hardcoded. For instance, you cannot add an attribute "color" in `wolf-own`. You can however, further on, set the color to whatever you like and even change it with every timestep.
 - NetLogo is case-insensitive. `Energy-Level` means exactly the same as `energy-level` and `CoLoR` is the same as `color`
 - NetLogo is unfortunately space-sensitive. You will find that debugging often comes down to adding spaces. For instance, `5+1/5` will throw an error, as it should be `5 + 1 / 5`.<br> 
+
 ### C. Patch-own
 
 Just like turtles, the patches in the simulation also have attributes. These can be coded using "patch-own". We won't name anything at this stage. On to the next section!
@@ -140,7 +141,7 @@ to "Button" (default option) and click the "+" sign to its left. Now click anywh
 5. Finally, right-click the output visualizer (the big black square), click "Edit" and match the settings to the screenshot below <br>
 
 <p align="center">
-  <img src="https://github.com/Stef-Boogers/NetLogo-for-ecology-tutorial/blob/86d21095403eb86972d8018b2c23169ae47778cb/assets/ModelSettings.JPG" alt="Model settings" width="350"/>
+  <img src="https://stef-boogers.github.io/NetLogo-for-ecology-tutorial/assets/ModelSettings.JPG" alt="Model settings" width="350"/>
 </p>  
 
 ### B. Code
@@ -202,7 +203,7 @@ Oops, something went wrong there. It seems that there's nothing called "countdow
 > (Hint: you need an additional `...-own` declaration at the start of your code.)
 
 You have now gotten to know the `ask` command, probably the most important one of all. If you want agents to do anything, go anywhere, interact... The code block will always start with `ask`. When the procedure runs, every agent belonging to the respective agentset will be called, in random order, to execute the command(s).<br> 
---- 
+
 
 #### Go
 Again, admire your progress in the Interface tab. The `setup` procedure is now complete. In order to build the `go` procedure, you need a few extra sliders. These will define the odds of reproduction and the amount of energy gained from food. Specifically: 
