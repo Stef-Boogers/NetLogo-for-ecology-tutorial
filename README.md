@@ -294,9 +294,10 @@ A lot being introduced there!
 *Assignment:* <br><br> 
 > Write a `grass-regeneration` procedure.
 > If a patch is already green, do nothing.
-> If it's brown, either deduct 1 from the `countdown` variable or, when that has reached zero, turn the patch green and set the `countdown` variable to `grass-regrowth-time`. 
-
-All that's left to do is play around with what you've made. Try varying the different sliders. If you're feeling overly ambitious, you can try to add a graph of the amount of sheep, goats and green patches to the interface. Use the `count` (and `with` to count green patches) primitives. And then you may return to your usual activities. 
+> If it's brown, either deduct 1 from the `countdown` variable or, when that has reached zero, turn the patch green and set the `countdown` variable to `grass-regrowth-time`.<br><br>  
+> Possible solution [here](/assets/AssignmentRegenerate.txt).
+<br><br> 
+All that's left to do is play around with what you've made. Try varying the different sliders. If you're feeling overly ambitious, you can try to add a graph of the amount of sheep, goats and green patches to the interface. Use the `count` (and `with` to count green patches) primitives. And then you may return to your usual activities. Thanks for your attention!
 
 ---
 
