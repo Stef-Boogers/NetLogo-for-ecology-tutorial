@@ -130,7 +130,7 @@ During coding, you will often switch between the "Code" and "Interface" tabs to 
 2. On the Interface tab, add a button to call the setup procedure.<br> 
 To do this, set the drop down menu in the banner ![interface banner](assets/InterfaceBanner.JPG) <br>
 to "Button" (default option) and click the "+" sign to its left. Now click anywhere in the white space.
- - In the popoup, next to "Agent(s)", select "observer". 
+ - In the popup, next to "Agent(s)", select "observer". 
  - Under "Commands" and next to "Display name", type "setup".
  - Leave the "Forever" and "Disable until ticks start" tick boxes open, as well as the "Action key" field.
 3. Redo step 2 for the "go" procedure. This procedure needs to repeat indefinitely, so tick the "Forever" box.
