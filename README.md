@@ -250,7 +250,8 @@ Over to you now. Looks like you'll be needing a `move` procedure (same for sheep
 > The turtle should **rotate** to a random direction and **move** ahead one unit of distance.<br><br> 
 > (Hint: look up `lt`, `rt`, `fd`, and the links to other commands they provide.)<br><br> 
 > Possible solution [here](/assets/AssignmentMove.txt).
-<br><br> 
+
+
 *Assignment:* <br><br> 
 > Write a death procedure.
 > Use an `if`-statement to check if a turtle's `energy-level` is still greater than zero.
@@ -259,7 +260,8 @@ Over to you now. Looks like you'll be needing a `move` procedure (same for sheep
 >
 > (Hint: look up `die`)<br><br>
 > Possible solution [here](/assets/AssignmentDeath.txt)
-<br><br> 
+
+
 Unfortunately, you don't have the skills yet to write a good `wolf-feed` procedure. `sheep-feed` is a lot simpler. If I give you the code for wolves for free, can you rewrite it for sheep?
 ```
 to wolf-feed
@@ -282,7 +284,6 @@ A lot being introduced there!
 > If a patch is consumed, it needs to turn brown.<br><br>
 > Possible solution [here](/assets/AssignmentFeed.txt).
 
-<br><br> 
 
 *Assignment:* <br><br> 
 > Write a separate reproduction procedure for sheep and wolves.<br> 
@@ -298,12 +299,12 @@ A lot being introduced there!
 > If a patch is already green, do nothing.
 > If it's brown, either deduct 1 from the `countdown` variable or, when that has reached zero, turn the patch green and set the `countdown` variable to `grass-regrowth-time`.<br><br>  
 > Possible solution [here](/assets/AssignmentRegenerate.txt).
-<br><br> 
+
 All that's left to do is play around with what you've made. Try varying the different sliders. If you're feeling overly ambitious, you can try to add a graph of the amount of sheep, goats and green patches to the interface. Use the `count` (and `with` to count green patches) primitives. And then you may return to your usual activities. Thanks for your attention!
 
----
 
-## Fun other models to play with 
+
+## 4. Fun other models to play with 
 - [Camas-Douglas fir fire model](http://modelingcommons.org/browse/one_model/6020#model_tabs_browse_nlw): progression of a wildfire across a plairie filled with camas, becoming invaded with Douglas fir when a steady fire regime is abandoned. Similar to the burning of heath fields in our own region. 
 - Autumn: you can find this one in NetLogo's modelling library (`Ctrl+M`). Model of a single tree losing its leaves due to the interactions of wind, rain, sun regime and branch architecture. A good example of how the modeling output window doesn't have to be a bird's eye view.
 - Pac-Man: again from the modelling library. Yes, you can build simple games in NetLogo. But it's a little underwhelming.
