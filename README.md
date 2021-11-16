@@ -1,4 +1,4 @@
-# Agent-Based Modeling for Ecology in NetLogo
+# Agent-Based Modelling for Ecology in NetLogo
 
 ## 0. Preparation <br>
 
