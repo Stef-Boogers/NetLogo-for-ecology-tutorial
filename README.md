@@ -151,6 +151,7 @@ turtles-own [ energy-level ]
 ```
 You already know what this code does. Didn't think it would actually work, did you? Click "check" in the banner and NetLogo will quickly see if the code will at least compile. Unfortunately, that doesn't mean your model will run. So far, so good? If not, shout. <br>
 
+#### Setup
 We can now get started on the setup procedure. I wonder what the command to clear everything could be?
 ```
 to setup
@@ -195,10 +196,99 @@ Oops, something went wrong there. It seems that there's nothing called "countdow
 >
 > Hint: you need an additional ...-own declaration at the start of your code.
 
-Again, admire your progress in the Interface tab. The setup procedure is now complete. In order to build the go procedure, you need a few extra sliders. These will define the odds of reproduction and the amount of energy gained from food. Specifically:
+You have know gotten to know the `ask` command, probably the most important command of all. If you want agents to do anything, go anywhere, interact... The code block will always start with `ask`. <br>
 
+#### Go
+Again, admire your progress in the Interface tab. The setup procedure is now complete. In order to build the go procedure, you need a few extra sliders. These will define the odds of reproduction and the amount of energy gained from food. Specifically: 
+- sheep-gain-from-food: 0 - 1 - 50
+- wolf-gain-from-food: 0 - 1 - 100
+- sheep-reproduce: 1 - 1 - 20
+- wolf-reproduce: 1 - 1 - 20 <br><br>
 
+Those were the final sliders, I promise. Here's the full code for the go procedure... But you will be writing the procedures it refers to yourself.
+```
+to go 
+ if not any? turtles [ stop ] 
+ if not any? wolves and count sheep > max-sheep [ user-message "The sheep have inherited the earth" stop ]
 
+; The two lines above stop the simulation if there are no turtles left or 
+; if no more wolves are left and the amount of sheep exceeds the global max-sheep.
+
+ask sheep [
+  move
+  set energy-level energy-level - 1
+  sheep-feed
+  death
+  sheep-reproduction
+]
+
+ask wolves [
+  move
+  set energy-level energy-level - 1
+  wolf-feed
+  death
+  wolf-reproduction
+]
+
+ask patches [
+  grass-regeneration
+]
+end
+```
+Over to you now. Looks like you'll be needing a `move` procedure (same for sheep and wolves), separate feeding and reproduction procedures for sheep and wolves, a generic `death` procedure and a `grass-regeneration` procedure. I've written down what these should do, exactly. <br>
+
+*Assignment:* <br>
+> Write a move procedure. 
+> The turtle should rotate to a random direction and move ahead one unit of distance.
+>
+>
+> Hint: look up `lt`, `rt`, `fd`, and the links to other commands they provide.
+
+*Assignment:* <br>
+> Write a death procedure.
+> Use an if-statement to check if a turtle's energy-level is still greater than zero.
+> If not, the turtle dies.
+> 
+>
+> Hint: look up `die`.
+
+The wolf-feed procedure requires some more knowledge of NetLogo. You get the code for free:
+```
+to wolf-feed
+  let prey one-of sheep-here                    ; grab a random sheep
+  if prey != nobody  [                          ; did we get one? if so,
+    ask prey [ die ]                            ; kill it, and...
+    set energy-level energy-level + wolf-gain-from-food     ; get energy from eating
+  ]
+end
+```
+A lot being introduced there! 
+- First of all the primitive `let`. This defines a variable that's only available in the current codeblock. Useful to store temporary values.
+- NetLogo has automatically provided you with the dynamic `sheep-here` agentset. The second line of code groups all the sheep present on the wolf's patch and randomly chooses one to be its prey.
+- The third line checks that a prey was indeed caught. `one-of sheep-here` may return an empty agentset, so this check is required.
+
+*Assignment:* <br>
+> Write a feeding procedure for sheep.
+> The sheep needs to check its current location for food (is the patch green?).
+> If so, the sheep consumes the resource and its `energy-level` gains `sheep-gain-from-food`.
+> If a patch is consumed, it needs to turn brown.
+
+*Assignment:* <br>
+> Write a separate reproduction procedure for sheep and wolves.
+> If a random number between 0 and 100 is smaller than the odds of reproduction, one fully grown animal is hatched on the spot.
+> The `energy-level` is divided equally between parent and offspring.
+>
+>
+> Hint: look up `hatch` and `random-float`.
+
+*Assignment:* <br>
+> Write a grass-regeneration procedure.
+> If a patch is already green, do nothing.
+> If it's brown, either deduct 1 from the `countdown` variable or, when that has reached zero, turn the patch green and set the `countdown` variable to `grass-regrowth-time`. 
+
+All that's left to do is play around with what you've made. Try varying the different sliders. If you're feeling overly ambitious, you can try to add a graph of the amount of sheep, goats and green patches to the interface. Use the `count` (and `with` to count green patches) primitives. And then you may return to your usual activities. 
+
+---
 
 ## Fun other models to play with 
 - [Camas-Douglas fir fire model](http://modelingcommons.org/browse/one_model/6020#model_tabs_browse_nlw): progression of a wildfire across a plairie filled with camas, becoming invaded with Douglas fir when a steady fire regime is abandoned. Similar to the burning of heath fields in our own region. 
