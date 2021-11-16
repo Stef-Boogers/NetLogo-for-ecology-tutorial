@@ -1,0 +1,6 @@
+to sheep-feed
+  if pcolor = green [
+    set pcolor brown
+    set energy-level energy-level + sheep-gain-from-food
+  ]
+end

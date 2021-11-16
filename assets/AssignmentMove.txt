@@ -1,0 +1,5 @@
+to move
+  rt random 50
+  lt random 50
+  fd 1
+end

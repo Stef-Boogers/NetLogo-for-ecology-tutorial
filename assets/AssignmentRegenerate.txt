@@ -1,0 +1,9 @@
+to grass-regeneration  
+  ; countdown on brown patches: if you reach 0, grow some grass
+  if pcolor = brown [
+    ifelse countdown <= 0
+      [ set pcolor green
+        set countdown grass-regrowth-time ]
+      [ set countdown countdown - 1 ]
+  ]
+end

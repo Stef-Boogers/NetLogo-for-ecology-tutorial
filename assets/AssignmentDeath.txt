@@ -1,0 +1,3 @@
+to death
+  if energy-level < 0 [ die ]
+end
