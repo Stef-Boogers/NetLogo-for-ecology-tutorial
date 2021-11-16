@@ -63,7 +63,7 @@ breed [ wolves wolf ]
 breed [ sheep a-sheep ]
 ; Same for sheep.
 
-wolf-own [ energy-level ]
+wolves-own [ energy-level ]
 sheep-own [ energy-level ]
 ; Faster way to do the same thing: turtles-own [ energy-level ]
 
